@@ -55,6 +55,15 @@ USART_PORT	= 0
 AVRDUDE_BAUD = 115200
 AVRDUDE_PORT		= /dev/ttyACM00
 
+else ifeq ($(ARDUINO_MODEL), Nano) # ATmega328p @ 16MHz (5V)
+# http://arduino.cc/en/Main/ArduinoBoardUno
+AVR_MCU_CLOCK	= 16
+AVR_MCU_SPEED	= 16000000UL
+MCU		= atmega328p
+USART_PORT	= 0
+AVRDUDE_BAUD = 115200
+AVRDUDE_PORT		= /dev/ttyUSB0
+
 else
 $(error Please define Arduino board model in Makefile.arduino)
 endif
